@@ -3,10 +3,10 @@
 Repository ini menyimpan acuan untuk penelitian, audit, perancangan, dan pengembangan terkontrol proyek Asri Collection. Dokumen target atau prompt tidak membuktikan bahwa fitur telah diterapkan pada repository aplikasi.
 
 ## Status dokumen
-- `0.md`: kandidat master prompt V3.0.0 untuk alur kerja engineering terkontrol.
+- `0.md`: master prompt aktif V3.0.0 untuk alur kerja engineering terkontrol; persetujuan implementasi tetap spesifik per tugas.
 - `STRUCTURE.md`: referensi struktur target; bukan bukti struktur aplikasi aktual.
 - `modules/`: modul tematik pendukung master prompt.
-- Versi kandidat V3.0.0 menggambarkan rancangan modular; keputusan penerapan/penetapan sebagai versi aktif harus mengikuti proses review proyek.
+- Struktur modular terdiri dari sepuluh modul tematik. Approval untuk setiap perubahan aplikasi, database, secrets, deployment, atau transaksi nyata tetap terpisah sesuai scope.
 
 ## Struktur dokumentasi
 
