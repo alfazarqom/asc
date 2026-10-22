@@ -1,49 +1,62 @@
 # Asri Collection — Repository Dokumentasi
 
-Repository ini menyimpan dokumen acuan untuk proses penelitian, audit, perancangan, dan pengembangan terkontrol proyek Asri Collection.
+Repository ini menyimpan acuan untuk penelitian, audit, perancangan, dan pengembangan terkontrol proyek Asri Collection. Dokumen target atau prompt tidak membuktikan bahwa fitur telah diterapkan pada repository aplikasi.
 
-Repository ini berfokus pada dokumentasi dan prompt kerja. Keberadaan dokumen arsitektur atau contoh struktur di sini **tidak berarti** kode aplikasi, konfigurasi backend, database, maupun deployment terkait telah dibuat atau diverifikasi.
+## Status dokumen
+- `0.md`: kandidat master prompt V3.0.0 untuk alur kerja engineering terkontrol.
+- `STRUCTURE.md`: referensi struktur target; bukan bukti struktur aplikasi aktual.
+- `modules/`: modul tematik pendukung master prompt.
+- Versi kandidat V3.0.0 menggambarkan rancangan modular; keputusan penerapan/penetapan sebagai versi aktif harus mengikuti proses review proyek.
 
-## Dokumen utama
+## Struktur dokumentasi
 
-| File | Tujuan |
+```text
+asc/
+├── README.md
+├── 0.md
+├── STRUCTURE.md
+└── modules/
+    ├── role.md
+    ├── instruction.md
+    ├── constraint.md
+    ├── project-context.md
+    ├── audit.md
+    ├── security.md
+    ├── commerce-domain.md
+    ├── payment-duitku.md
+    ├── testing.md
+    └── reporting.md
+```
+
+## Indeks modul
+| File | Fungsi |
 |---|---|
-| [`0.md`](./0.md) | Master Prompt V2.1 untuk riset repository, audit keamanan, rekomendasi, implementasi terkontrol, pengujian, dan verifikasi. |
-| [`STRUCTURE.md`](./STRUCTURE.md) | Referensi struktur direktori aplikasi Asri Collection, tanggung jawab direktori, konvensi penamaan, dan batas keamanan. |
+| [role.md](modules/role.md) | Peran dan standar kerja |
+| [instruction.md](modules/instruction.md) | Workflow, sumber kebenaran, dan sumber resmi |
+| [constraint.md](modules/constraint.md) | Approval gates dan batas perubahan |
+| [project-context.md](modules/project-context.md) | Konteks awal yang harus diverifikasi |
+| [audit.md](modules/audit.md) | Audit repository/sistem dan standar bukti |
+| [security.md](modules/security.md) | Keamanan aplikasi dan data |
+| [commerce-domain.md](modules/commerce-domain.md) | Order, pembayaran, reservasi, stok, pengiriman |
+| [payment-duitku.md](modules/payment-duitku.md) | Integrasi Duitku POP |
+| [testing.md](modules/testing.md) | Tes, verifikasi, dan kesiapan rilis |
+| [reporting.md](modules/reporting.md) | Format laporan, prioritas, penutupan tahap |
 
-## Cara menggunakan dokumen
+## Workflow yang disarankan
+1. Identifikasi repository, branch, commit, environment, dan scope.
+2. Audit read-only dengan bukti konkret.
+3. Tinjau temuan dan rekomendasi.
+4. Sepakati requirement final.
+5. Minta persetujuan eksplisit sebelum implementasi.
+6. Terapkan perubahan minimal sesuai approval, uji, dan verifikasi.
 
-1. Baca `0.md` untuk memahami peran, prinsip kerja, dan workflow perubahan yang diharapkan.
-2. Gunakan `STRUCTURE.md` sebagai acuan konseptual ketika membahas struktur aplikasi.
-3. Sebelum audit atau implementasi, pastikan repository aplikasi, branch, dan commit yang benar.
-4. Periksa file serta konfigurasi aktual dan gunakan bukti yang dapat diverifikasi.
-5. Bedakan temuan faktual, asumsi, rekomendasi, dan pekerjaan yang belum diverifikasi.
-6. Dapatkan persetujuan eksplisit sebelum menjalankan perubahan yang memerlukan persetujuan pemilik proyek.
+## Batas persetujuan
+Audit tidak mengizinkan edit; persetujuan requirement bukan izin implementasi. Push/merge, migration/database aktif, secrets, cloud resources, deployment, dan pembayaran nyata memerlukan persetujuan terpisah. Baca [constraint.md](modules/constraint.md).
 
-## Workflow perubahan
-
-Workflow yang direkomendasikan:
-
-**Audit → Analisis → Rekomendasi → Tinjauan requirement → Persetujuan eksplisit → Implementasi → Pengujian → Verifikasi**
-
-Persetujuan untuk satu tahap atau satu cakupan tidak otomatis memberikan izin untuk cakupan lain.
-
-## Batas dan keamanan
-
-- `STRUCTURE.md` adalah **struktur referensi**, bukan inventaris yang membuktikan seluruh file atau folder telah tersedia.
-- Jangan menyimpulkan implementasi berhasil hanya dari rencana, dokumentasi, atau kode yang belum diuji.
-- Jangan mengubah database aktif, menjalankan migration, mengubah secrets, konfigurasi keamanan, atau melakukan deployment tanpa persetujuan eksplisit yang mencakup tindakan tersebut.
-- Jangan menaruh API key, merchant key, token, password, atau secret lain di repository.
-- Untuk integrasi pembayaran, verifikasi status harus berdasarkan bukti backend yang sah; redirect atau tampilan sukses di frontend bukan bukti final pembayaran.
-- Audit harus mencantumkan cakupan, branch/commit, bukti temuan, risiko, keterbatasan, dan hasil pengujian yang benar-benar dijalankan.
-
-## Pemeliharaan dokumentasi
-
-- Perbarui dokumen ketika requirement atau keputusan arsitektur disepakati berubah.
-- Pastikan perubahan dokumentasi tidak bertentangan dengan keputusan proyek terbaru.
-- Jangan menandai fitur atau struktur sebagai sudah diterapkan sebelum diverifikasi di repository aplikasi yang tepat.
-- Gunakan commit message yang menjelaskan tujuan perubahan secara ringkas.
+## Sumber Duitku
+- [Dokumentasi POP](https://docs.duitku.com/pop/id/)
+- [Dokumentasi API](https://docs.duitku.com/api/id/)
+- [FAQ Duitku](https://www.duitku.com/frequently-asked-questions/)
 
 ## Catatan
-
-Repository ini adalah sumber dokumentasi kerja. Untuk mengetahui kondisi implementasi aktual, audit repository aplikasi dan konfigurasi Supabase yang sesuai secara terpisah.
+Konteks aplikasi harus diverifikasi pada repository aplikasi yang benar. Jangan menyimpulkan kondisi produksi dari dokumen ini saja.
